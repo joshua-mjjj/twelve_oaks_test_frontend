@@ -1,3 +1,5 @@
+declare const cy: any;
+
 describe('Search Restaurants', () =>  {
     it('user can enter location and search and initiate search', () => {
       
@@ -34,7 +36,7 @@ describe('Search Restaurants', () =>  {
       cy.findByRole('textbox', {  name: /search term/i}).clear().type('sushi')
       cy.findByRole('button', {  name: /search/i}).click()
 
-      // Asserting for existence because this component only renders when no results were found
+      // Asserting for non existence because this component only renders when no results were found
       cy.findByRole('heading', {  name: /no restaurants found\./i}).should('not.exist')
       
     })

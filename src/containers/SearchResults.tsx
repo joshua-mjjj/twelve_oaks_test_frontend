@@ -28,11 +28,11 @@ interface SearchIconProps {
 
 const SearchRsults: React.FC<SearchIconProps> = ({ 
 	location, 
-	search_term, 
-	RouteSingleRestuarant, 
+	search_term,  
 	restaurants_data,
 	loading,
 	getDataObject,
+	RouteSingleRestuarant,
 	no_results_found
 }) => {
 
