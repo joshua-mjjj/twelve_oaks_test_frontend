@@ -21,7 +21,7 @@ const RecipeReviewCard: React.FC<RecipeReviewCardProps> = ({ restaurant, viewSin
   }
 
   return (
-    <div onClick={handleRoute} >
+    <div onClick={handleRoute}>
       <Card sx={card_styles} >
         <CardHeader
           title={<Typography sx={header}>{restaurant?.name}</Typography>}

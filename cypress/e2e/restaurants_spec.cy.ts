@@ -1,7 +1,7 @@
 declare const cy: any;
 
 describe('Search Restaurants', () =>  {
-    it('user can enter location and search and initiate search', () => {
+    it('user can enter location and search, initiate search and view Restaurants List', () => {
       
       // Visit app
       cy.visit('http://localhost:3000')
@@ -13,6 +13,9 @@ describe('Search Restaurants', () =>  {
 
       // Asserting for non existence because this component will not render when no results were found
       cy.findByRole('heading', {  name: /no restaurants found\./i}).should('not.exist')
+      
+      // View Restaurants List
+      cy.get('[data-test=restuarants-list]').should('exist')
 
     })
   })
@@ -38,6 +41,9 @@ describe('Search Restaurants', () =>  {
 
       // Asserting for non existence because this component only renders when no results were found
       cy.findByRole('heading', {  name: /no restaurants found\./i}).should('not.exist')
+
+      // View Restaurants List
+      cy.get('[data-test=restuarants-list]').should('exist')
       
     })
   })

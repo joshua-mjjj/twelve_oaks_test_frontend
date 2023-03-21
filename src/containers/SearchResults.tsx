@@ -67,7 +67,15 @@ const SearchRsults: React.FC<SearchIconProps> = ({
 				>
 					{restaurants_data?.map((restaurant) => {
 						return (
-							<Grid key={restaurant?.id} item lg={4} md={4} sm={6} xs={12}>
+							<Grid 
+							   key={restaurant?.id} 
+							   data-test="restuarants-list"
+							   item 
+							   lg={4} 
+							   md={4} 
+							   sm={6} 
+							   xs={12}
+							>
 								<SingleRestuarant 
 								   restaurant={restaurant}
 								   viewSingleRestuarant={viewSingleRestuarant}
