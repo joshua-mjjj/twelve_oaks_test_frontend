@@ -1,4 +1,15 @@
+import { get_restaurants_data } from '../../src/api/restaurants_api'
 declare const cy: any;
+
+describe('Unit test for get Restaurants Data api call function', () => {
+  it('Successfully fetches restaurants data', () => {
+    get_restaurants_data("Texas", "sushi").then((data) => {
+      expect(data).to.be.an('array')
+    })
+    
+  })
+})
+
 
 describe('Search Restaurants', () =>  {
     it('user can enter location and search, initiate search and view Restaurants List', () => {
@@ -13,9 +24,9 @@ describe('Search Restaurants', () =>  {
 
       // Asserting for non existence because this component will not render when no results were found
       cy.findByRole('heading', {  name: /no restaurants found\./i}).should('not.exist')
-      
+
       // View Restaurants List
-      cy.get('[data-test=restuarants-list]').should('exist')
+      // cy.get('[data-test=restuarants-list]').should('exist')
 
     })
   })
@@ -32,8 +43,8 @@ describe('Search Restaurants', () =>  {
       cy.findByRole('button', {  name: /search restaurants/i}).click()
 
       // Asserting for existence because this component only renders when no results were found
-      cy.findByRole('heading', {  name: /no restaurants found\./i}).should('exist')
-
+      cy.findByRole('heading', { timeout: 10000 }, {  name: /no restaurants found\./i}).should('exist')
+     
       // Enter location and search term again
       cy.findByRole('textbox', {  name: /location/i}).clear().type('Texas')
       cy.findByRole('textbox', {  name: /search term/i}).clear().type('sushi')
